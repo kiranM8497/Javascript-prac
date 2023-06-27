@@ -36,6 +36,7 @@ const init = function () {
    currentScore = 0;
    scores = [0, 0];
    playing = true;
+  activePlayer=0;
   // bydefault we have selected player 1 as active he ) in this scenario activePlayer = 0;
 
   //hiding dice roll
@@ -90,7 +91,7 @@ btnHold.addEventListener('click', function () {
   if (playing) {
     //1.add current score to actve player score
     scores[activePlayer] += currentScore;
-    diceEl.classList.add('hidden');
+   
 
     //display it
     document.getElementById(`score--${activePlayer}`).textContent =
@@ -100,7 +101,7 @@ btnHold.addEventListener('click', function () {
     //player wins
     if (scores[activePlayer] >= 20) {
       playing = false;
-
+       diceEl.classList.add('hidden');
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
